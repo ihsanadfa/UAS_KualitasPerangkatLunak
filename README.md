@@ -7,12 +7,12 @@ Fraga adalah aplikasi Android untuk pelacakan aktivitas fisik, perencanaan, inte
 
 ## Cakupan Fitur Otomatisasi
 Otomatisasi mencakup alur-alur utama berikut:
-* Registrasi & Login Pengguna (termasuk logout dengan konfirmasi)
-* Halaman Track: Perencanaan aktivitas, Start/Stop tracking langsung.
-* Activity Feed: Interaksi "Kudos" (long press) dan scrolling.
-* Fitur Sosial: Manajemen pertemanan dan pencarian.
-* Goals & Challenges: Fokus pada Personal Goals (Sync Steps, penggunaan template dengan dialog).
-* Profil & Pengaturan: Edit profil, navigasi terkait profil, interaksi di Settings, dan Logout.
+* Proses Registrasi, Login dan Logout Pengguna.
+* Halaman Track: Start dan Stop tracking langsung.
+* Halaman Activity: Interaksi "Kudos" dan scrolling.
+* Halaman Friends: Manajemen pertemanan dan pencarian.
+* Halaman Goals: Menekan Sync Steps dan konfirmasi.
+* Halaman Profile : Mematikan semua opsi notifikasi.
 
 ## Teknologi & Tools
 * Appium
@@ -25,9 +25,7 @@ Otomatisasi mencakup alur-alur utama berikut:
 ## Struktur Proyek Utama
 * **`src/main/java/default/`**:
     * `base.java`: Konfigurasi DesiredCapabilities & inisialisasi `AndroidDriver`.
-    * `AppiumUtils.java`: Kelas utilitas (waits, click, sendKeys, scroll).
-    * `AuthenticationHelper.java`: Logika terpusat untuk registrasi, login, logout.
-    * `Test_0X_NamaFitur.java`: Kelas-kelas tes modular per fitur.
+    * `UserRegistrationLoginLogoutTest.java`: Kelas-kelas tes modular per fitur.
 * **`src/fraga-debug.apk`**: File APK aplikasi.
 * **`pom.xml`**: File konfigurasi Maven.
 
@@ -43,16 +41,8 @@ Otomatisasi mencakup alur-alur utama berikut:
 ## Cara Menjalankan Tes
 1.  **Start Appium Server**: Jalankan `appium` di terminal.
 2.  **Siapkan Perangkat/Emulator**: Pastikan AVD berjalan atau perangkat fisik terhubung.
-3.  **Eksekusi Skrip**: Buka proyek di IDE Java, biarkan Maven mengunduh dependensi. Jalankan metode `main` pada file `Test_0X_NamaFitur.java` yang diinginkan sebagai "Java Application".
-
-## Ringkasan Skenario Tes
-* **`Test_01_RegistrationAndLogin.java`**: Registrasi (email acak), login, logout.
-* **`Test_02_TrackScreen.java`**: Login (`rizki.test@example.com`), alur Plan Activity -> Start Activity (di New Activity) -> konfirmasi -> kembali ke Track -> Start Tracking -> tunggu 2 dtk -> Stop Tracking.
-* **`Test_03_ActivityFeed.java`**: Login (`rizki.test@example.com`), long-press Kudos, scroll, long-press Kudos lagi.
-* **`Test_04_SocialFeatures.java`**: Login (`rizki.test@example.com`), manajemen permintaan pertemanan, pencarian teman.
-* **`Test_05_GoalsAndChallenges_Revised.java`**: Login (`rizki.test@example.com`), navigasi ke Personal Goals, Sync Steps (+dialog), scroll ke Goal Templates, pilih template Marathon (+dialog).
-* **`Test_06_ProfileAndSettings.java`**: Login (`rizki.test@example.com`), navigasi ke Profile, edit profil, uji tombol navigasi Profile, masuk Settings, interaksi menu, dan Logout (+dialog).
+3.  **Eksekusi Skrip**: Buka proyek di IDE Java, biarkan Maven mengunduh dependensi. Jalankan metode `main` pada file-file yang diinginkan sebagai "Java Application".
 
 ## Catatan
-* Akun `rizki.test@example.com` (password: `password123`) diasumsikan sudah ada untuk tes `Test_02` hingga `Test_06`.
+* Akun `appium@test.com` (password: `test123`).
 * Pastikan Appium server berjalan sebelum eksekusi.
